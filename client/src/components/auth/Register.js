@@ -7,7 +7,7 @@ const Register = ({ handleRegister, updateUser, id, setEdit, email, password, pa
 
   useEffect( () => {
     if (id) {
-      setUser({id, email, passowrd, passwordConfirmation, fname, lname})
+      setUser({id, email, password, passwordConfirmation, fname, lname})
     }
   }, [])
 

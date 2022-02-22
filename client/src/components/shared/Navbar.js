@@ -19,6 +19,9 @@ const Navbar = ({ user, handleLogout }) => {
                 Profile
               </Link>
             </li>
+            <li onClick={ () => handleLogout() }>
+                Logout
+            </li>
           </ul>
         </>
       )
@@ -42,4 +45,27 @@ const Navbar = ({ user, handleLogout }) => {
       )
     }
   }
+  return (
+    <>
+      <nav>
+        <ul>
+          <Link to="/">
+            <li>
+              Home
+            </li>
+          </Link>
+          { rightNavItems() }
+        </ul>
+      </nav>
+    </>
+  )
 }
+
+
+const ConnectedNavbar = (props) => {
+  <AuthConsumer>
+    { value => <Navbar {...props} {...value} />}
+  </AuthConsumer>
+}
+
+export default ConnectedNavbar;

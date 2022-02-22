@@ -3,34 +3,33 @@ import axios from 'axios';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 const FetchUser = ({ authenticated, setUser, children }) => {
-
   const [loaded, setLoaded] = useState(false)
 
   useEffect( () => {
     if (authenticated) {
-      load()
+      setLoaded(true)
     } else {
       if (checkLocalToken()) {
         axios.get('/api/auth/validate_token')
           .then(res => {
             setUser(res.data.data)
-            load()
+            setLoaded(true)
           })
-          .catch( res => load() )
+          .catch( res => setLoaded(true) )
       } else {
-        load()
+        setLoaded(true)
       }
     }
   }, [])
 
-  const load = () => setLoaded(true)
+  // const load = () => setLoaded(true)
 
   const checkLocalToken = () => {
     const token = localStorage.getItem('access-token')
     return token;
   }
 
-  return loaded ? children : null;
+  return loaded ? children : null; 
 }
 
 const ConnectedFetchUser = (props) => (
