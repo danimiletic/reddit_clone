@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AuthConsumer } from '../../providers/auth/AuthProvider';
+import { AuthConsumer } from '../../providers/AuthProvider';
 import ProfileForm from './ProfileForm';
 import { useParams } from 'react-router';
 import axios from 'axios';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Profile = ({ id, fname, lname, email, image, updateUser }) => {
 
   const [user, setUser] = useState ({ fname: '', lname: '', email: '' })
-  const [editing, setEditing] = useState(false)
+  const [editing, setEdit] = useState(false)
 
   useEffect( () => {
     axios.get(`/api/auth/edit`)

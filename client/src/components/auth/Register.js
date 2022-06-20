@@ -3,7 +3,7 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 
 const Register = ({ handleRegister, updateUser, id, setEdit, email, password, passwordConfirmation, fname, lname }) => {
 
-  const [user, setUser] = useState({ email: '', passowrd: '', passwordConfirmation: '', fname: '', lname: '' })
+  const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '', fname: '', lname: '' })
 
   useEffect( () => {
     if (id) {
@@ -27,16 +27,31 @@ const Register = ({ handleRegister, updateUser, id, setEdit, email, password, pa
   return (
     <>
       <h1>Register</h1>
-        <label>Email</label>
         <form onSubmit={handleSubmit}>
-          <input
-            type='email'
-            name='email'
-            value={user.email}
-            onChange={(e) => setUser({...user, email: e.target.value})}
-            required
-            autoFocus
-          />
+          <label>First Name</label>
+            <input
+              type='fname'
+              name='fname'
+              value={user.fname}
+              onChange={(e) => setUser({...user, fname: e.target.value})}
+              required
+            />
+          <label>Last Name</label>
+            <input
+              type='lname'
+              name='lname'
+              value={user.lname}
+              onChange={(e) => setUser({...user, lname: e.target.value})}
+            />
+          <label>Email</label>
+            <input
+              type='email'
+              name='email'
+              value={user.email}
+              onChange={(e) => setUser({...user, email: e.target.value})}
+              required
+              autoFocus
+            />
           <label>Password</label>
             <input
               type='password'
@@ -45,6 +60,7 @@ const Register = ({ handleRegister, updateUser, id, setEdit, email, password, pa
               onChange={(e) => setUser({...user, password: e.target.value})}
               required
             />
+          <label>Password Confirmation</label>
             <input
               type='passwordConfirmation'
               name='passwordConfirmation'
@@ -52,16 +68,16 @@ const Register = ({ handleRegister, updateUser, id, setEdit, email, password, pa
               onChange={(e) => setUser({...user, passwordConfirmation: e.target.value})}
               required
             />
-            <button type='submit'>Submit</button>
-      </form>
+          <button type='submit'>Submit</button>
+        </form>
     </>
   )
 }
 
-const ConnectedRegister = (props) => {
+const ConnectedRegister = (props) => (
   <AuthConsumer>
     { value => <Register {...props} {...value} />}
   </AuthConsumer>
-}
+)
 
 export default ConnectedRegister;

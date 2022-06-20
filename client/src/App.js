@@ -6,8 +6,9 @@ import Navbar from './components/shared/Navbar';
 import Home from './components/shared/Home';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Profile from './components/shared/Profile';
 
-const App = () => {
+const App = () => (
   <>
     <Navbar />
       <FetchUser>
@@ -15,7 +16,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/' element={<ProtectedRoute /> }>
-              <Route path='/profile' element={<Home />} />
+              <Route path='/profile' element={<Profile />} />
             </Route>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
@@ -24,6 +25,6 @@ const App = () => {
         </>
       </FetchUser>
   </>
-}
+)
 
 export default App;

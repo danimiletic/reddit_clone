@@ -62,10 +62,10 @@ const Navbar = ({ user, handleLogout }) => {
 }
 
 
-const ConnectedNavbar = (props) => {
+const ConnectedNavbar = (props) => (
   <AuthConsumer>
     { value => <Navbar {...props} {...value} />}
   </AuthConsumer>
-}
+)
 
 export default ConnectedNavbar;
