@@ -7,19 +7,19 @@ import { Link } from 'react-router-dom';
 
 const Profile = ({ id, fname, lname, email, image, updateUser }) => {
 
-  const [user, setUser] = useState ({ fname: '', lname: '', email: '' })
-  const [editing, setEdit] = useState(false)
+  // const [user, setUser] = useState ({ fname: '', lname: '', email: '' })
+  // const [editing, setEdit] = useState(false)
 
-  useEffect( () => {
-    axios.get(`/api/auth/edit`)
-      .then( res => setUser(res.data))
-      .catch( err => console.log(err))
-  }, [])
+  // useEffect( () => {
+  //   axios.get(`/api/auth/edit`)
+  //     .then( res => setUser(res.data))
+  //     .catch( err => console.log(err))
+  // }, [])
 
 
   return (
     <>
-      { editing ?
+      {/* { editing ?
       <>
         <form
           email={email}
@@ -30,14 +30,16 @@ const Profile = ({ id, fname, lname, email, image, updateUser }) => {
         <button onClick={() => setEdit(false)}>Cancel</button>
         <br />
       </>
-        :
+        : */}
       <>
+        {/* <ProfileForm /> */}
         <img src={image}/>
         <h2>Email: {email}</h2>
         <h2>{fname}</h2>
         <h2>{lname}</h2>
+        {/* <button onClick={() => setEdit(true)}>Edit</button> */}
       </>
-      }
+     {/* } */}
     </>
   )
 }

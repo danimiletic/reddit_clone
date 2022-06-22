@@ -7,7 +7,7 @@ const FetchUser = ({ authenticated, setUser, children }) => {
 
   useEffect( () => {
     if (authenticated) {
-      setLoaded(true)
+      load()
     } else {
       if (checkLocalToken()) {
         axios.get('/api/auth/validate_token')
@@ -17,12 +17,12 @@ const FetchUser = ({ authenticated, setUser, children }) => {
           })
           .catch( res => setLoaded(true) )
       } else {
-        setLoaded(true)
+        load()
       }
     }
   }, [])
 
-  // const load = () => setLoaded(true)
+  const load = () => setLoaded(true)
 
   const checkLocalToken = () => {
     const token = localStorage.getItem('access-token')

@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
   const updateUser = (id, user) => {
     let data = new FormData()
     data.append('file', user.image)
-    data.append('name', user.name)
+    data.append('name', user.fname)
     data.append('email', user.email)
     axios.put(`/api/users/${id}`, data)
     .then( res => {

@@ -41,6 +41,7 @@ const ProfileForm = ({ updateUser, setEdit, fname, lname, email, addUser, id}) =
           value={user.email}
           onChange={(e) => setUser({...user, email: e.target.value})}
         />
+        <button type='submit'>Submit</button>
       </form>
     </>
   )
