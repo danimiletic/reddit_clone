@@ -10,7 +10,7 @@ const Navbar = ({ user, handleLogout }) => {
         <>
           <ul>
             <li>
-              <Link to='/'>
+              <Link to='/subreadits'>
                 Home
               </Link>
             </li>
@@ -52,9 +52,9 @@ const Navbar = ({ user, handleLogout }) => {
       <nav>
         <ul>
           {/* these links show up with or without user being logged in */}
-          <Link to="/">
+          <Link to="/subreadits">
             <li>
-              Reddit
+              Readit
             </li>
           </Link>
           { rightNavItems() }
