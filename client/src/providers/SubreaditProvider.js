@@ -14,6 +14,9 @@ const SubreaditProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
+  // const addSubreadit = (subreadit) => {
+  //   axios.post('/api/subreadits')
+  // }
   return (
     <SubreaditContext.Provider value={{
       subreadits, 
