@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export const SubreaditContext = React.createContext();
 export const SubreaditConsumer = SubreaditContext.Consumer;
@@ -22,12 +22,37 @@ const SubreaditProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
+  const updateSubreadit = (id, subreadit) => {
+    axios.put(`/api/subreadits/${id}`, { subreadits })
+     .then( res => {
+       const newUpdatedSubreadit = subreadit.map( s => {
+         if (s.id === id) {
+           return res.data
+         }
+         return s
+       })
+       setSubreadits(newUpdatedSubreadit)
+       Navigate('/subreadits')
+     })
+     .catch( err => console.log(err) )
+  }
 
+  const deleteSubreadit = (id) => {
+    axios.delete(`/api/subreadits/${id}`)
+      .then( res => {
+        setSubreadits(subreadits.filter( s => s.id !== id))
+        alert(res.data.message)
+        Navigate('/subreadits')
+      })
+      .catch( err => console.log(err) )
+  }
   return (
     <SubreaditContext.Provider value={{
       subreadits, 
       getAllSubreadits: getAllSubreadits,
       addSubreadit: addSubreadit,
+      updateSubreadit: updateSubreadit,
+      deleteSubreadit: deleteSubreadit,
     }}>
       { children }
     </SubreaditContext.Provider>
