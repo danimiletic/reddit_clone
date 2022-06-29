@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   # validates :fname, :lname, :image, presence: true 
   include DeviseTokenAuth::Concerns::User
+
+  has_many :subreadits, dependent: :destroy
 end

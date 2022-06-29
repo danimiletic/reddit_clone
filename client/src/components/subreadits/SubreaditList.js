@@ -7,6 +7,8 @@ const SubreaditList = ({ subreadits }) => {
         <ul>
           <li>
             {s.title}
+            {s.description}
+            {s.owner}
           </li>
         </ul>)}
     </>

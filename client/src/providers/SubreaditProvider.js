@@ -8,19 +8,26 @@ export const SubreaditConsumer = SubreaditContext.Consumer;
 const SubreaditProvider = ({ children }) => {
   const [subreadits, setSubreadits] = useState([])
 
+  // const navigate = useNavigate()
+
   const getAllSubreadits = () => {
     axios.get('/api/subreadits')
       .then( res => setSubreadits(res.data))
-      .catch( err => console.log(err))
+      .catch( err => console.log(err) )
   }
 
-  // const addSubreadit = (subreadit) => {
-  //   axios.post('/api/subreadits')
-  // }
+  const addSubreadit = (subreadit) => {
+    axios.post('/api/subreadits', { subreadit })
+      .then( res => setSubreadits([...subreadits, res.data]))
+      .catch( err => console.log(err) )
+  }
+
+
   return (
     <SubreaditContext.Provider value={{
       subreadits, 
       getAllSubreadits: getAllSubreadits,
+      addSubreadit: addSubreadit,
     }}>
       { children }
     </SubreaditContext.Provider>

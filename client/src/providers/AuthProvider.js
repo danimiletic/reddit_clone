@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   
   const [user, setUser] = useState(null)
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleRegister = (user) => {
     axios.post('/api/auth', user)

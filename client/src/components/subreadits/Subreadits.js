@@ -3,7 +3,8 @@ import { SubreaditConsumer } from '../../providers/SubreaditProvider';
 import SubreaditList from './SubreaditList';
 
 const Subreadits = ({ subreadits, getAllSubreadits }) => {
-  useEffect = (() => {
+
+  useEffect( () => {
     getAllSubreadits()
   }, [])
 
@@ -11,8 +12,6 @@ const Subreadits = ({ subreadits, getAllSubreadits }) => {
     <>
       <h2>All Subreadits</h2>
       <SubreaditList subreadits={subreadits} />
-      {/* <a href="/">Home</a> */}
-
     </>
   )
 }

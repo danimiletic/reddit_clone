@@ -19,8 +19,8 @@ const App = () => (
             <Route path='/' element={<Home />} />
             <Route path='/' element={<ProtectedRoute /> }>
               <Route path='/profile' element={<Profile />} />
+              <Route path='/subreadits' element={<Subreadits />} />
             </Route>
-            <Route path='/subreadits' element={<Subreadits />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/*' element={<Nomatch />} />
