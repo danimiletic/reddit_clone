@@ -8,7 +8,7 @@ export const SubreaditConsumer = SubreaditContext.Consumer;
 const SubreaditProvider = ({ children }) => {
   const [subreadits, setSubreadits] = useState([])
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const getAllSubreadits = () => {
     axios.get('/api/subreadits')
@@ -32,7 +32,7 @@ const SubreaditProvider = ({ children }) => {
          return s
        })
        setSubreadits(newUpdatedSubreadit)
-       Navigate('/subreadits')
+       navigate('/subreadits')
      })
      .catch( err => console.log(err) )
   }

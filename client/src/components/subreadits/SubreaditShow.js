@@ -28,7 +28,7 @@ const SubreaditShow = ({ updateSubreadit, deleteSubreadit }) => {
       </>
       :
       <>
-      <h3>Id: {params.subreaditId} {title}</h3>
+      <h3>r/{title}</h3>
       <h5>{description}</h5>
       <h5>{owner}</h5>
       <button onClick={() => setEdit(true)}>Edit</button>

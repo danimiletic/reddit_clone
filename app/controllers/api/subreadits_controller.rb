@@ -28,7 +28,7 @@ class Api::SubreaditsController < ApplicationController
 
   def destroy
     @subreadit.destroy
-    render json: { messages: "Subreadit was deleted" }
+    render json: { message: "Subreadit deleted" }
   end
 
   private 
