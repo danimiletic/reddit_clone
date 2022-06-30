@@ -1,70 +1,69 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
-const Navbar = ({ user, handleLogout }) => {
+const MainNavbar = ({ user, handleLogout }) => {
 
   const rightNavItems = () => {
     // links will display when user is logged in 
     if (user) {
       return (
         <>
-          <ul>
-            <li>
+            <Nav.Link>
               <Link to='/'>
-                Home
+                Posts
               </Link>
-            </li>
-            <li>
+            </Nav.Link>
+            <Nav.Link>
               <Link to='/profile'>
                 Profile
               </Link>
-            </li>
-            <li onClick={ () => handleLogout() }>
+            </Nav.Link>
+            <Nav.Link onClick={() => handleLogout()}>
               <Link to="/">
                 Logout
               </Link>
-            </li>
-            <Link to="/subreadits">
-            <li>
-              Readit
-            </li>
-          </Link>
-          </ul>
+            </Nav.Link>
+            {/* <Nav.Link>
+              <Link to="/subreadits">
+                Readit
+              </Link>
+            </Nav.Link> */}
         </>
       )
     } else {
       // links will display when user is logged out
       return (
         <>
-          <ul>
-            <li>
-              <Link to='/login'>
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to='/register'>
-                Register
-              </Link>
-            </li>
-          </ul>
+          <Nav.Link>
+            <Link to='/login'>
+              Login
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to='/register'>
+              Register
+            </Link>
+          </Nav.Link>
         </>
       )
     }
   }
   return (
     <>
-      <nav>
-        <ul>
           {/* these links show up with or without user being logged in */}
-          {/* <Link to="/subreadits">
-            <li>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand>
+            <Link to="/subreadits">
               Readit
-            </li>
-          </Link> */}
-          { rightNavItems() }
-        </ul>
-      </nav>
+            </Link>
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            { rightNavItems() }
+          </Nav>
+        </Container>
+      </Navbar>
     </>
   )
 }
@@ -72,7 +71,7 @@ const Navbar = ({ user, handleLogout }) => {
 
 const ConnectedNavbar = (props) => (
   <AuthConsumer>
-    { value => <Navbar {...props} {...value} />}
+    { value => <MainNavbar {...props} {...value} />}
   </AuthConsumer>
 )
 

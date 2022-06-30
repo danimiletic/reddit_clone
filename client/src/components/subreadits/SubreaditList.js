@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 
 const SubreaditList = ({ subreadits }) => {
   return (
@@ -6,11 +6,11 @@ const SubreaditList = ({ subreadits }) => {
       { subreadits.map ( s =>
         <ul>
           <li>
-            {s.title}
-            <br />
-            {s.description}
-            <br />
-            {s.owner}
+            <Link to={`/subreadits/${s.id}`}>
+            <h5>r/{s.title}</h5>
+            <h6>About this sub! - {s.description}</h6>
+            <h6>Creator: {s.owner}</h6>
+            </Link>
           </li>
         </ul>)}
     </>
