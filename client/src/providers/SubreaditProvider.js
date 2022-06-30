@@ -23,9 +23,9 @@ const SubreaditProvider = ({ children }) => {
   }
 
   const updateSubreadit = (id, subreadit) => {
-    axios.put(`/api/subreadits/${id}`, { subreadits })
+    axios.put(`/api/subreadits/${id}`, { subreadit })
      .then( res => {
-       const newUpdatedSubreadit = subreadit.map( s => {
+       const newUpdatedSubreadit = subreadits.map( s => {
          if (s.id === id) {
            return res.data
          }
