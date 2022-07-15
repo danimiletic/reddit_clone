@@ -30,7 +30,7 @@ const SubreaditShow = ({ updateSubreadit, deleteSubreadit }) => {
       <>
       <h3>r/{title}</h3>
       <h5>{description}</h5>
-      <h5>{owner}</h5>
+      <h5>Creator: {owner}</h5>
       <button onClick={() => setEdit(true)}>Edit</button>
       <button onClick={() => deleteSubreadit(id)}> Delete</button>
       </>
