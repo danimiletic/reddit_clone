@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { PostConsumer } from '../../providers/PostProvider'
 
 const SubreaditForm = ({ addSubreadit, updateSubreadit, id, title, description, owner }) => {
   const [subreadit, setSubreadit] = useState({ title: '', description: '', owner: '' })

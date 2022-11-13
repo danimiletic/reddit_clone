@@ -28,7 +28,6 @@ const FetchUser = ({ authenticated, setUser, children }) => {
     const token = localStorage.getItem('access-token')
     return token;
   }
-
   return loaded ? children : null; 
 }
 

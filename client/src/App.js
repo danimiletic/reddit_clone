@@ -9,6 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Profile from './components/shared/Profile';
 import Subreadits from './components/subreadits/Subreadits';
 import SubreaditShow from './components/subreadits/SubreaditShow';
+import PostShow from './components/posts/PostShow';
 
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
               <Route path='/profile' element={<Profile />} />
               <Route path='/subreadits' element={<Subreadits />} />
               <Route path='/subreadits/:subreaditId' element={<SubreaditShow />}/>
+              <Route path='/:subreaditId/posts/:postId' element={<PostShow />}/>
             </Route>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

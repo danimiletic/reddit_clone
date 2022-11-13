@@ -61,7 +61,7 @@ const Register = ({ handleRegister }) => {
             />
           <label>Password Confirmation</label>
             <input
-              type="password"
+              type="passwordConfirmation"
               name="passwordConfirmation"
               value={user.passwordConfirmation}
               onChange={(e) => setUser({...user, passwordConfirmation: e.target.value})}

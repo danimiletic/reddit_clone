@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :subreadit
+  has_many :comments
 
-  validate :user_name, :post_title, :post_content, :image, :url, presence: true
+  validates :user_name, :post_title, :post_content, :image, :url, presence: true
 end

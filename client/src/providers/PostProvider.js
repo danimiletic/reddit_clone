@@ -6,9 +6,9 @@ export const PostContext = React.createContext();
 export const PostConsumer = PostContext.Consumer;
 
 const PostProvider = ({ children }) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const getAllPosts = (subreaditId) => {
     axios.get(`/api/subreadits/${subreaditId}/posts`)
@@ -18,12 +18,12 @@ const PostProvider = ({ children }) => {
 
   const addPost = (subreaditId, post) => {
     axios.post(`/api/subreadits/${subreaditId}/posts`, { post } )
-      .then( res => setPosts(res.data))
-      .catch( err => console.log(err))
+    .then( res => setPosts([...posts, res.data]))
+    .catch( err => console.log(err))
   }
 
   const updatePost = (subreaditId, id, post) => {
-    axios.put(`/api/subreadits/${subreaditId}/posts/${id}`)
+    axios.put(`/api/subreadits/${subreaditId}/posts/${id}`, { post })
       .then( res => {
         const newUpdatedPosts = posts.map( p => {
           if (p.id === id) {

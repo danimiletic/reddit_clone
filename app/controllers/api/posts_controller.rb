@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
 
 
   def index
-    render json: @subreadit.post
+    render json: @subreadit.posts
   end
 
   def show
@@ -33,17 +33,16 @@ class Api::PostsController < ApplicationController
     render json: { message: 'Post Deleted'}
   end
 
-  private
-    
+  private 
     def post_params
       params.require(:post).permit(:user_name, :post_title, :post_content, :image, :url)
     end
-    
+
     def set_subreadit
       @subreadit = Subreadit.find(params[:subreadit_id])
     end
-
+    
     def set_post 
-      @post = @subreadit.games.find(params[:id])
-    end
+      @post = @subreadit.posts.find(params[:id])
+  end
 end

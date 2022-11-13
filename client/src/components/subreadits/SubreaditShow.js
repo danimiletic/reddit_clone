@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import SubreaditForm from './SubreaditForm';
 import { SubreaditConsumer } from '../../providers/SubreaditProvider';
+import Posts from '../posts/Posts';
 
 const SubreaditShow = ({ updateSubreadit, deleteSubreadit }) => {
   const params = useParams();
@@ -35,6 +36,7 @@ const SubreaditShow = ({ updateSubreadit, deleteSubreadit }) => {
       <button onClick={() => deleteSubreadit(id)}> Delete</button>
       </>
       }
+      <Posts subreaditId={id} />
     </>
   )
 }

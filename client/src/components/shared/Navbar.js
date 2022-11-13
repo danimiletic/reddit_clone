@@ -10,11 +10,6 @@ const MainNavbar = ({ user, handleLogout }) => {
       return (
         <>
             <Nav.Link>
-              <Link to='/'>
-                Posts
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
               <Link to='/profile'>
                 Profile
               </Link>

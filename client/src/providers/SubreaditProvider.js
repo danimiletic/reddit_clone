@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const SubreaditContext = React.createContext();
 export const SubreaditConsumer = SubreaditContext.Consumer;
@@ -42,7 +42,7 @@ const SubreaditProvider = ({ children }) => {
       .then( res => {
         setSubreadits(subreadits.filter( s => s.id !== id))
         alert(res.data.message)
-        Navigate('/subreadits')
+        navigate('/subreadits')
       })
       .catch( err => console.log(err) )
   }
