@@ -9,6 +9,7 @@ import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import SubreaditProvider from './providers/SubreaditProvider';
 import PostProvider from './providers/PostProvider';
+import CommentProvider from './providers/CommentProvider';
 
 initMiddleware();
 
@@ -18,7 +19,9 @@ ReactDOM.render(
       <AuthProvider>
         <SubreaditProvider>
           <PostProvider>
-            <App />
+            <CommentProvider>
+              <App />
+            </CommentProvider>
           </PostProvider>
         </SubreaditProvider>
       </AuthProvider>
