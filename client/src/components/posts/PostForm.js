@@ -25,14 +25,14 @@ const PostForm = ({ id, addPost, setAdd, updatePost, setEdit, subreaditId, post_
     <>
       <form onSubmit={handleSubmit}>
         <input
-          type='user_name'
+          type='text'
           name='user_name'
           value={post.user_name}
           placeholder='user name'
           onChange={(e) => setPost({ ...post, user_name: e.target.value })}
         />
         <input 
-          type='post_title'
+          type='text'
           name='post_title'
           value={post.post_title}
           placeholder='title'
@@ -40,7 +40,7 @@ const PostForm = ({ id, addPost, setAdd, updatePost, setEdit, subreaditId, post_
           required
         />
         <input
-          type='post_content'
+          type='text'
           name='post_content'
           value={post.post_content}
           placeholder='content'

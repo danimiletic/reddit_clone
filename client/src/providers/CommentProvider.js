@@ -13,11 +13,11 @@ const CommentProvider = ({ children }) => {
   const getAllComments = (postId) => {
     axios.get(`/api/posts/${postId}/comments`)
       .then( res => setComments(res.data))
-      .catch( err => console.log(err))
+      .catch( err => console.log)
   }
 
   const addComment = (postId, comment) => {
-    axios.post(`/api/posts/${postId}/comments`, { comment } )
+    axios.post(`/api/posts/${postId}/comments`, { comment })
       .then( res => setComments([...comments, res.data]))
       .catch ( err => console.log(err))
   }
