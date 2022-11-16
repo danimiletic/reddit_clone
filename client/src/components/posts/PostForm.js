@@ -61,7 +61,7 @@ const PostForm = ({ id, addPost, setAdd, updatePost, setEdit, subreaditId, post_
           placeholder='add link'
           onChange={(e) => setPost({ ...post, url: e.target.value })}
         />
-        <button type='submite'>Submit</button>
+        <button type='submit'>Submit</button>
       </form>
     </>
   )
